@@ -31,15 +31,23 @@ eventEmitter.emit("lunch");
 
 // File System
 
-const {readFile,readFileSync} = require('fs')
+// const {readFile,readFileSync} = require('fs')
 
-readFile("./hello.txt", "utf-8", (err, txt) => {
-  console.log(txt, ' Using ReadFILE');
-});
+// readFile("./hello.txt", "utf-8", (err, txt) => {
+//   console.log(txt, ' Using ReadFILE');
+// });
 
-const txt = readFileSync('./hello.txt','utf-8')
-console.log(txt)
+// const txt = readFileSync('./hello.txt','utf-8')
+// console.log(txt)
 
 
-console.log('do this ASAP')
+// console.log('do this ASAP')
 
+const {readFile} = require('fs').promises;
+
+async function hello() {
+    const file = await readFile("./hello.txt", "utf-8");
+    console.log(file)
+}
+
+hello();
